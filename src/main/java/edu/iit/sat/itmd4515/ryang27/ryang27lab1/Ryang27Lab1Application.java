@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- *
+ * maven
  */
 @SpringBootApplication
 public class Ryang27Lab1Application {
