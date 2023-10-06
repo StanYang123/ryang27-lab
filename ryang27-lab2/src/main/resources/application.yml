@@ -1,0 +1,18 @@
+
+spring:
+  profiles:
+    active: dev
+  main:
+    web-application-type:
+    allow-bean-definition-overriding: true
+  datasource:
+    druid: com.mysql.cj.jdbc.Driver
+    username: itmd4515
+    password: itmd4515
+    driver-class-name:
+    url: jdbc:mysql://127.0.0.1:3306/itmd4515?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    type: com.alibaba.druid.pool.DruidDataSource
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
