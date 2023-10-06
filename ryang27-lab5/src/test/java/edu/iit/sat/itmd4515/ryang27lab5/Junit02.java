@@ -46,6 +46,7 @@ public class Junit02 {
         LambdaQueryWrapper<Euser> wrapper3 = new LambdaQueryWrapper<>();
         wrapper3.eq(Euser::getEname,event.getName());
         List<Euser> list1 = euserMapper.selectList(wrapper3);
+        System.out.println(list1.toString());
     }
 
 }
