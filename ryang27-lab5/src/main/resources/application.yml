@@ -1,0 +1,16 @@
+server:
+  port: 8087
+
+spring:
+  #jsp的相关配置
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
+  datasource:
+    druid: com.mysql.cj.jdbc.Driver
+    username: itmd4515
+    password: itmd4515
+    driver-class-name:
+    url: jdbc:mysql://127.0.0.1:3306/itmd4515?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    type: com.alibaba.druid.pool.DruidDataSource
