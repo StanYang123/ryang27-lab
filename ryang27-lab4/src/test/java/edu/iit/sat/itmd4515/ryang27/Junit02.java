@@ -10,6 +10,7 @@ import java.util.Set;
 
 /**
  * @author Wang.Kone
+ * bean Test
  */
 public class Junit02 {
 
