@@ -7,8 +7,8 @@ import edu.iit.sat.itmd4515.ryang27lab5.mapper.AnimalMapper;
 import org.springframework.stereotype.Service;
 
 /**
-* @author 神舟笔记本
-* @description 针对表【animal】的数据库操作Service实现
+* @author
+* @description 【animal】
 * @createDate 2023-10-06 14:07:51
 */
 @Service

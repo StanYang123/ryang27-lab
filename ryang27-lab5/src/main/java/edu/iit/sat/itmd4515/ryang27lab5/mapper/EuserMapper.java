@@ -5,8 +5,8 @@ import edu.iit.sat.itmd4515.ryang27lab5.pojo.Euser;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
-* @author 神舟笔记本
-* @description 针对表【euser】的数据库操作Mapper
+* @author
+* @description 【euser】的数据库操作Mapper
 * @createDate 2023-10-06 14:07:58
 * @Entity generator.domain.Euser
 */
