@@ -1,10 +1,11 @@
 package edu.iit.sat.itmd4515.ryang27lab5;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import edu.iit.sat.itmd4515.ryang27lab5.mapper.AnimalMapper;
-import edu.iit.sat.itmd4515.ryang27lab5.mapper.EventMapper;
+
 import edu.iit.sat.itmd4515.ryang27lab5.pojo.Animal;
 import edu.iit.sat.itmd4515.ryang27lab5.pojo.Event;
+import edu.iit.sat.itmd4515.ryang27lab5.repository.AnimalRepository;
+import edu.iit.sat.itmd4515.ryang27lab5.repository.EventRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -19,22 +20,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest
 public class Junit01 {
 
-    @Autowired
-    private EventMapper eventMapper;
+      @Autowired
+      private EventRepository eventRepository;
 
-    @Autowired
-    private AnimalMapper animalMapper;
+      @Autowired
+      private AnimalRepository animalRepository;
 
     @Test
     public void  test01(){
-        LambdaQueryWrapper<Event> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(Event::getRemark,"10:00");
-        Event event = eventMapper.selectOne(wrapper);
+        Event event = eventRepository.findByEvent("New York Zoo");
 
-        LambdaQueryWrapper<Animal> wrapper1 = new LambdaQueryWrapper<>();
-        wrapper1.eq(Animal::getEname,event.getName());
-
-        Animal animal = animalMapper.selectOne(wrapper1);
+        Animal animal = animalRepository.selectOne(event.getName());
         assertEquals("tiger", animal.getAname());
     }
 

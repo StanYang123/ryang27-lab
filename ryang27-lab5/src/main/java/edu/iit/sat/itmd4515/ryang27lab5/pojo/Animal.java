@@ -6,6 +6,8 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -14,11 +16,13 @@ import java.io.Serializable;
  */
 @TableName(value ="animal")
 @Data
+@Entity
 public class Animal implements Serializable {
     /**
      * 
      */
     @TableId(type = IdType.AUTO)
+    @Id
     private Integer aid;
 
     /**

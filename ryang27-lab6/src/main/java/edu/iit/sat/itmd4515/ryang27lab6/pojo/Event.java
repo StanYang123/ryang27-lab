@@ -1,13 +1,13 @@
-package edu.iit.sat.itmd4515.ryang27lab5.pojo;
+package edu.iit.sat.itmd4515.ryang27lab6.pojo;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -15,9 +15,9 @@ import java.util.Date;
  * 
  * @TableName event
  */
-@TableName(value ="event")
 @Data
 @Entity
+@Table(name = "event")
 public class Event implements Serializable {
     /**
      * 
@@ -51,7 +51,6 @@ public class Event implements Serializable {
     @Id
     private Integer id;
 
-    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
     @Override

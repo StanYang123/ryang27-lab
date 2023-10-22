@@ -1,11 +1,10 @@
 package edu.iit.sat.itmd4515.ryang27lab5;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import edu.iit.sat.itmd4515.ryang27lab5.mapper.AnimalMapper;
-import edu.iit.sat.itmd4515.ryang27lab5.mapper.EuserMapper;
-import edu.iit.sat.itmd4515.ryang27lab5.mapper.EventMapper;
 import edu.iit.sat.itmd4515.ryang27lab5.pojo.Euser;
 import edu.iit.sat.itmd4515.ryang27lab5.pojo.Event;
+import edu.iit.sat.itmd4515.ryang27lab5.repository.EuserRepository;
+import edu.iit.sat.itmd4515.ryang27lab5.repository.EventRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,30 +22,24 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Junit02 {
 
     @Autowired
-    private EventMapper eventMapper;
+    private EventRepository eventRepository;
 
     @Autowired
-    private EuserMapper euserMapper;
+    private EuserRepository euserRepository;
 
     @Test
     public void test01(){
-        LambdaQueryWrapper<Euser> wrapper = new LambdaQueryWrapper<>();
-        List<Euser> list = euserMapper.selectList(wrapper);
+        List<Euser> list = euserRepository.selectList();
 
         for (int i=0;i<list.size();i++){
-            LambdaQueryWrapper<Event> wrapper1 = new LambdaQueryWrapper<>();
-            wrapper1.eq(Event::getName,list.get(i).getEname());
-            Event event = eventMapper.selectOne(wrapper1);
+            Event event = eventRepository.findByEvent1(list.get(i).getEname());
             assertEquals("Zoo", event.getName());
         }
 
-        LambdaQueryWrapper<Event> wrapper2 = new LambdaQueryWrapper<>();
-        wrapper2.eq(Event::getRemark,"10:00");
-        Event event = eventMapper.selectOne(wrapper2);
-        LambdaQueryWrapper<Euser> wrapper3 = new LambdaQueryWrapper<>();
-        wrapper3.eq(Euser::getEname,event.getName());
-        List<Euser> list1 = euserMapper.selectList(wrapper3);
-        System.out.println(list1.toString());
+        Event event = eventRepository.findByEvent("10:00");
+
+        List<Euser> list1 = euserRepository.selectListA(event.getName());
+        assertEquals("Zoo", list1.get(0).getEname());
     }
 
 }

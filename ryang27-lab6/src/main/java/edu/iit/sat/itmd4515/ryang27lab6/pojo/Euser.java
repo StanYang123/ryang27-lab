@@ -1,27 +1,23 @@
-package edu.iit.sat.itmd4515.ryang27lab5.pojo;
+package edu.iit.sat.itmd4515.ryang27lab6.pojo;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
 
 /**
  * 
  * @TableName euser
  */
-@TableName(value ="euser")
 @Data
 @Entity
+@Table(name = "euser")
 public class Euser implements Serializable {
     /**
      * 
      */
-    @TableId(type = IdType.AUTO)
     @Id
     private Integer uid;
 
@@ -40,7 +36,6 @@ public class Euser implements Serializable {
      */
     private String utel;
 
-    @TableField(exist = false)
     private static final long serialVersionUID = 1L;
 
     @Override
