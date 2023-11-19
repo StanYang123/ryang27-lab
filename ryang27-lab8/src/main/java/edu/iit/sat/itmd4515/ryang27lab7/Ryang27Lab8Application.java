@@ -1,15 +1,16 @@
 package edu.iit.sat.itmd4515.ryang27lab7;
 
 
+import jakarta.security.enterprise.SecurityContext;
 import org.ocpsoft.rewrite.servlet.RewriteFilter;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+import org.springframework.beans.factory.support.GenericBeanDefinition;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScans;
+import org.springframework.context.annotation.*;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.DispatcherType;
@@ -17,7 +18,7 @@ import java.util.EnumSet;
 
 
 @SpringBootApplication
-@ComponentScan({"jakarta.security.enterprise"})
+//@ComponentScan({"jakarta.security.enterprise"})
 //@ComponentScans()
 public class Ryang27Lab8Application {
 
