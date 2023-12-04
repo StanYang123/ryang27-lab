@@ -21,8 +21,8 @@ import java.util.List;
  */
 
 @Scope (value = "session")
-@Component (value = "EventList")
-@ELBeanName(value = "EventList")
+@Component (value = "EventListController")
+@ELBeanName(value = "EventListController")
 @Join(path = "/eventlist", to = "/event-list.jsf")
 public class EventListController {
 
@@ -30,6 +30,9 @@ public class EventListController {
     private EventServiceImpl eventService;
 
     private List<Event> events;
+
+    private Event event = new Event();
+
 
     @Deferred
     @RequestAction
@@ -41,13 +44,41 @@ public class EventListController {
     }
 
     public List<Event> getEvents() {
+        System.out.println(event.getId());
+
         List<Event> events1 = new ArrayList<>();
 //        events1.add(eventService.select());
         events = eventService.select();
-        System.out.println(events.size());
+        if (event.getId()!=null){
+            events.clear();
+            events=search();
+        }
         return events;
     }
 
+    public List<Event> search(){
+        if (event.getId()==null){
+            return null;
+        }
+        Event event1 = eventService.select(event.getId());
+        if (event1==null){
+            getEvent();
+            return null;
+        }
+//        System.out.println(event1.toString());
+        events.clear();
+        events.add(event1);
+        return events;
+    }
+
+    public String goError(){
+        return "/errors/data.xhtml";
+
+    }
+
+    public Event getEvent() {
+        return event;
+    }
 
 
 }

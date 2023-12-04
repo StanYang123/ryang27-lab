@@ -24,6 +24,7 @@ public class EventController {
 
     private Event event = new Event();
 
+
     public String save() {
         if (event.getName().length()==0||event.getType().equals("")){
             return "/answer.xhtml?faces-redirect=true";
@@ -49,6 +50,25 @@ public class EventController {
     public String delect(){
         return "/event-delect.xhtml?faces-redirect=true";
     }
+
+    public String delect1(){
+        System.out.println(event.getId());
+        eventService.deleteById(event.getId());
+        return "/event-list.xhtml?faces-redirect=true";
+    }
+
+    public String update1(){
+        Event event1 = new Event();
+        event1.setId(event.getId());
+        event1.setName(event.getName());
+        event1.setType(event.getType());
+
+        eventService.update(event1);
+
+        return "/event-list.xhtml?faces-redirect=true";
+    }
+
+
 
     public Event getEvent() {
         return event;

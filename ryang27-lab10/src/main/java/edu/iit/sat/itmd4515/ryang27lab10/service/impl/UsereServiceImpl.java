@@ -3,9 +3,11 @@ package edu.iit.sat.itmd4515.ryang27lab10.service.impl;
 import edu.iit.sat.itmd4515.ryang27lab10.service.UsereService;
 import edu.iit.sat.itmd4515.ryang27lab10.pojo.Usere;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.Random;
 
 /**
  * @author Wang.Kone
@@ -26,6 +28,16 @@ public class UsereServiceImpl implements UsereService {
 
         Usere usere1 = (Usere) entityManager.find(Usere.class, usere);
         return usere1;
+    }
+
+    @Transactional
+    public void save(String username,String password){
+        Usere usere = new Usere();
+        Random random = new Random();
+        usere.setId(random.nextInt());
+        usere.setUsername(username);
+        usere.setPassword(password);
+        entityManager.persist(usere);
     }
 
 

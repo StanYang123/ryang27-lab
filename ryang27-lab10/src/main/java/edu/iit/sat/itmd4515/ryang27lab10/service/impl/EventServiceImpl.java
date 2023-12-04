@@ -30,14 +30,28 @@ public class EventServiceImpl implements EventService {
     }
 
     @Transactional
-    public Event update(Event event) {
+    public void update(Event event) {
+        System.out.println(event.toString());
         entityManager.merge(event);
-        return event;
+        entityManager.flush();
+    }
+
+    @Transactional
+    public void deleteById(long id) {
+        Event event = select(Integer.valueOf(String.valueOf(id)));
+        if (event != null) {
+            entityManager.remove(event);
+        }
     }
 
     @Transactional
     public Event save(Event event) {
         entityManager.persist(event);
+        return event;
+    }
+
+    public Event select(Integer id){
+        Event event = (Event) entityManager.find(Event.class, id);
         return event;
     }
 

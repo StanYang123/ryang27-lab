@@ -1,0 +1,46 @@
+1. Project Overview:
+-Briefly describe the project in your own words.
+My project is a lightweight Java web project based on JavaTa EE using JSF for page construction
+-How do you meet each part of the specification requirements?
+Write code using the corresponding Java class package as required, such as adding or deleting entity classes; Used the JPA persistence layer framework for database operations
+
+
+2. Design:
+-Describe the design of your project's functionality.
+The project is divided into two main modules: user login and registration, entity class management (adding, deleting, modifying, and querying)
+Design selection: Java language, Jpa, Jsf, JavaTa EE. The overall design adopts a three-layer architecture
+-What functions have you implemented?
+User login registration, entity class management (add, delete, modify, query)
+-How is the navigation process between functional areas?
+Bind the JSF page with the corresponding controller class to perform page to page transitions
+-In addition, use this section to list any additional features you have implemented and how to incorporate them into your design, including your insights.
+
+
+3. Requirements (installation, compilation, running, database, etc.):
+-Explain how I should install, build, and run your project.
+Use the corresponding MySQL 8.0 database to execute the corresponding SQL file, configure the corresponding Maven dependency package management, and add the corresponding dependency package to the project
+-The detailed steps are as if I have no knowledge of how to perform these operations.
+(1) Use the corresponding idea tool to import the project and configure Maven dependency package management
+(2) Download MySQL 8.0 database and SQLYOG database management tool
+(3) Use sqlyog to execute the corresponding SQL file
+-What are the versions of tools, libraries, and APIs used in your project?
+MySQL 8.0, lombok, jakarta. jakartaee api10.0
+
+
+4. Screenshot:
+-Include sufficient screenshots to illustrate the performance of your project.
+
+
+5. Expected results/known issues:
+-Use this section to describe any known issues in the project. Nothing is perfect, recording problems is better than ignoring them.
+-Please also provide a known and working test script for me to follow when running your project.
+Account: user Password: 123
+
+
+6. Development insights:
+-Use this section to tell me anything about the project and your design/development experience during the project.
+-What have you learned?
+I have learned how to quickly develop a Java Web project, consider the overall project structure, security, performance, and more
+-What is there that you would like to further explore?
+I hope to strengthen my understanding of the underlying use of libraries and tools, so that I can have a clear understanding of the project. It is more convenient to complete a Java web using mainstream frameworks in the industry
+Projects. Participate in practical projects to enhance experience

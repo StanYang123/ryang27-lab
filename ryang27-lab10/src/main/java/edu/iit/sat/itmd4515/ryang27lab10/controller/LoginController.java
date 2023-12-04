@@ -28,7 +28,10 @@ public class LoginController  extends SpringBeanAutowiringSupport {
     }
 
 
-    private Usere usere = new Usere();
+    public Usere usere = new Usere();
+
+    public Usere usere2 = new Usere();
+
 
     public String login() {
 
@@ -53,13 +56,39 @@ public class LoginController  extends SpringBeanAutowiringSupport {
     }
 
     public String logout() {
-        System.out.println("1111");
         return "/login.xhtml?faces-redirect=true";
+    }
+
+    public String registerGo(){
+        return "/register.xhtml?faces-redirect=true";
+    }
+
+    public String register() {
+        if (usere2.getUsername().length()==0||usere2.getPassword().equals("")){
+            return "/errors/error.xhtml";
+        }
+
+        usereService.save(usere2.getUsername(),usere2.getPassword());
+        return "/login.xhtml?faces-redirect=true";
+
     }
 
     public Usere getUsere() {
         return usere;
     }
 
+    public Usere getUsere2() {
+        return usere2;
+    }
+
+    public String index(){
+        System.out.println("1111");
+        return "/login.xhtml?faces-redirect=true";
+    }
+
+    public String javadoc(){
+        System.out.println("1111");
+        return "/javadoc/index.html?faces-redirect=true";
+    }
 
 }
